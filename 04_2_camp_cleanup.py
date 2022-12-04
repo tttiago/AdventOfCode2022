@@ -7,17 +7,11 @@ for line in contents:
     elf_1_min, elf_1_max = [int(x) for x in elf_1.split("-")]
     elf_2_min, elf_2_max = [int(x) for x in elf_2.split("-")]
 
-    if (
-        elf_2_min <= elf_1_min <= elf_2_max
-        or elf_2_min <= elf_1_max <= elf_2_max
-        or (elf_2_min <= elf_1_min and elf_2_max >= elf_1_max)
-    ):
-        total_overlaps += 1
-    elif (
-        elf_1_min <= elf_2_min <= elf_1_max
-        or elf_1_min <= elf_2_max <= elf_1_max
-        or (elf_1_min <= elf_2_min and elf_1_max >= elf_2_max)
-    ):
+    # Ensure that elf1 is the one which starts in the lowest section.
+    if elf_2_min < elf_1_min:
+        elf_1_min, elf_1_max, elf_2_min, elf_2_max = elf_2_min, elf_2_max, elf_1_min, elf_1_max
+
+    if elf_2_min <= elf_1_max:
         total_overlaps += 1
 
 print(total_overlaps)
