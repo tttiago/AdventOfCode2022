@@ -1,5 +1,5 @@
 with open("./data/input4.txt") as f:
-    contents = f.read().splitlines()[:-1]
+    contents = f.read().splitlines()
 
 total_overlaps = 0
 for line in contents:
