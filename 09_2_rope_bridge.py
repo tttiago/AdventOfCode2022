@@ -6,12 +6,14 @@ visited = set()
 
 
 def update_tail(head_pos, tail_pos):
-    if abs(head_pos[0] - tail_pos[0]) <= 1 and abs(head_pos[1] - tail_pos[1]) <= 1:
-        return
     dif_x = head_pos[0] - tail_pos[0]
+    dif_y = head_pos[1] - tail_pos[1]
+
+    if abs(dif_x) <= 1 and abs(dif_y) <= 1:
+        return
+
     if dif_x:
         tail_pos[0] += dif_x // abs(dif_x)
-    dif_y = head_pos[1] - tail_pos[1]
     if dif_y:
         tail_pos[1] += dif_y // abs(dif_y)
 
