@@ -51,7 +51,7 @@ for round in range(20):
         for item in cur_monkey_dict["items"]:
             cur_monkey_dict["items_inspected"] += 1
             worry_level = compute_operation(cur_monkey_dict["operation"], item)
-            worry_level = worry_level // 3
+            worry_level //= 3
             if worry_level % cur_monkey_dict["divisor"] == 0:
                 destination = cur_monkey_dict["destination"][0]
             else:
