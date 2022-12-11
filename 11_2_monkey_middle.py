@@ -49,7 +49,7 @@ def compute_operation(operation_str, worry_level):
 
 
 monkeys_dict = initialize_data(monkey_strings)
-common_multuple = get_common_multiple(monkeys_dict)
+common_multiple = get_common_multiple(monkeys_dict)
 
 for round in range(10_000):
     for monkey in monkeys_dict:
@@ -58,7 +58,7 @@ for round in range(10_000):
         for item in cur_monkey_dict["items"]:
             cur_monkey_dict["items_inspected"] += 1
             worry_level = compute_operation(cur_monkey_dict["operation"], item)
-            worry_level %= common_multuple
+            worry_level %= common_multiple
             if worry_level % cur_monkey_dict["divisor"] == 0:
                 destination = cur_monkey_dict["destination"][0]
             else:
