@@ -43,7 +43,6 @@ def compute_operation(operation_str, worry_level):
 
 
 monkeys_dict = initialize_data(monkey_strings)
-print(monkeys_dict)
 
 for round in range(20):
     for monkey in monkeys_dict:
@@ -62,8 +61,6 @@ for round in range(20):
         # Remove items which where sent to other monkeys.
         for _ in range(n_items_to_remove):
             cur_monkey_dict["items"].pop(0)
-
-    print(monkeys_dict)
 
 total_inspected_items = [monkeys_dict[monkey]["items_inspected"] for monkey in monkeys_dict]
 two_largest = sorted(total_inspected_items, reverse=True)[:2]
